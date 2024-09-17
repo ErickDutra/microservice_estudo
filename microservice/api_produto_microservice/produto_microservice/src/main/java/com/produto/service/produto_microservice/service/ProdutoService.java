@@ -23,7 +23,6 @@ public class ProdutoService {
    
     public ProdutoDto saveProduto(ProdutoDto produtoDto) {
     Produto produto = new Produto();
-    produto.setId(produtoDto.id());
     produto.setArmazen(produtoDto.id_armazen());
     produto.setNome(produtoDto.nome());
     produto.setPrice(produtoDto.price());

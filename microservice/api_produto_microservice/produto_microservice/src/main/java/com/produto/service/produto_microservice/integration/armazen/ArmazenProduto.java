@@ -8,10 +8,10 @@ import com.produto.service.produto_microservice.integration.dto.ArmazenDto;
 import feign.RequestLine;
 
 
-@FeignClient(name = "armazen-produto", url = "http://localhost:8080/armazen")
+@FeignClient(name = "armazen-produto", url = "http://localhost:8080")
 public interface ArmazenProduto {
 
     //@PostMapping("/atualizar-estoque")
-    @RequestLine("POST /atualizar-estoque")
+    @RequestLine("POST /armazen/atualizar-estoque")
     ResponseEntity<ArmazenDto> postQuantity(@RequestBody ArmazenDto armazenDto);
 }
