@@ -48,19 +48,18 @@ public class ArmazenService {
         return new ArmazenDto(armazenSalvo.getId(), armazenSalvo.getName(),armazenSalvo.getAddress(),armazenSalvo.getCapacity(), armazenSalvo.getStatus());
     }
 
-    public ArmazenCapacityDto updateEstoque(Long idArmazen, int quantidade) {
+    public ArmazenCapacityDto updateEstoque(ArmazenCapacityDto armazenCapacityDto) {
         
-        Armazen armazen = armazenRepository.findById(idArmazen)
-            .orElseThrow(() -> new RuntimeException("Armazém não encontrado para o id: " + idArmazen));
+        Armazen armazen = armazenRepository.findById(armazenCapacityDto.id()).get();
     
-        int novaCapacidade = armazen.getCapacity() - quantidade;
+        Integer novaCapacidade = armazen.getCapacity() - armazenCapacityDto.capacity();
         armazen.setCapacity(novaCapacidade); 
     
       
         Armazen armazenSalvo = armazenRepository.save(armazen);
     
         
-        return new ArmazenCapacityDto(armazenSalvo.getCapacity()); 
+        return new ArmazenCapacityDto(armazenSalvo.getId(),armazenSalvo.getCapacity()); 
     }
     
 

@@ -46,8 +46,8 @@ public class ArmazenController {
     }
 
     @PostMapping("/atualizar-estoque")
-    public ResponseEntity<ArmazenCapacityDto> updateEstoque(@RequestBody Long idArmazen, @RequestBody int quantidade) {
-        return ResponseEntity.ok(armazenService.updateEstoque(idArmazen, quantidade));
+    public ResponseEntity<ArmazenCapacityDto> updateEstoque(@RequestBody ArmazenCapacityDto armazenCapacityDto) {
+        return ResponseEntity.ok(armazenService.updateEstoque(armazenCapacityDto));
     }
     
     

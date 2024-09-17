@@ -1,16 +1,18 @@
 package com.produto.service.produto_microservice.integration.armazen;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import feign.Feign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 
-@Component
+@Configuration
 public class ArmazenProdutoConfig {
     @Bean
+    @Lazy
     public ArmazenProduto armazenProduto(){
         return Feign.builder()
             .decoder(new JacksonDecoder())

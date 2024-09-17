@@ -30,12 +30,9 @@ public class ProdutoService {
     produto.setQuantidade(produtoDto.quantidade());
 
     Produto produtoDb = produtoRepository.save(produto);
-
     
-    ArmazenDto armazenDto = new ArmazenDto();
-    armazenDto.setId(produtoDb.getArmazen());
-    armazenDto.setQuantity(produtoDb.getQuantidade());
-
+    ArmazenDto armazenDto = new ArmazenDto(produtoDb.getArmazen(), produtoDb.getQuantidade());
+    
     try {
         armazenService.postQuantity(armazenDto);
     } catch (Exception e) {
@@ -44,7 +41,5 @@ public class ProdutoService {
 
     return new ProdutoDto(produtoDb.getId(), produtoDb.getArmazen(), produtoDb.getNome(), produtoDb.getQuantidade(), produtoDb.getPrice());
 }
-
-
 
 }
