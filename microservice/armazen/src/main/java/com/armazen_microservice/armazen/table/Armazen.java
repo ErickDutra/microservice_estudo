@@ -1,4 +1,4 @@
-package com.armazen.armazen_microservice.table;
+package com.armazen_microservice.armazen.table;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

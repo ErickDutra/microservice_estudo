@@ -25,13 +25,13 @@ public class Produto {
     private Long id;
 
     @Column
-    private Long id_armazen;
+    private Long armazen;
     
     @Column
     private String nome;
 
     @Column
-    private Long quantidade;
+    private Integer quantidade;
 
     @Column
     private Float price;

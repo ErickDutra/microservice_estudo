@@ -8,10 +8,10 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.armazen</groupId>
-	<artifactId>armazen_microservice</artifactId>
+	<groupId>com.armazen_microservice</groupId>
+	<artifactId>armazen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>armazen_microservice</name>
+	<name>armazen</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

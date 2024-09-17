@@ -1,12 +1,11 @@
 package com.produto.service.produto_microservice.service;
 
-import java.util.stream.Collectors;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.produto.service.produto_microservice.dto.ProdutoDto;
 import com.produto.service.produto_microservice.integration.ArmazenService;
+import com.produto.service.produto_microservice.integration.dto.ArmazenDto;
 import com.produto.service.produto_microservice.repository.ProdutoRepository;
 import com.produto.service.produto_microservice.tables.Produto;
 
@@ -21,19 +20,31 @@ public class ProdutoService {
 
       
 
-    public ProdutoDto saveProduto(ProdutoDto produtoDto){
-        Produto produto = new Produto();
-        produto.setId(produtoDto.id());
-        produto.setId_armazen(produtoDto.id_armazen());
-        produto.setNome(produtoDto.nome());
-        produto.setPrice(produtoDto.price());
-        produto.setQuantidade(produtoDto.quantidade());
-        //armazenService.update(produtoDto);
-        Produto produtoDb = produtoRepository.save(produto);
+   
+    public ProdutoDto saveProduto(ProdutoDto produtoDto) {
+    Produto produto = new Produto();
+    produto.setId(produtoDto.id());
+    produto.setArmazen(produtoDto.id_armazen());
+    produto.setNome(produtoDto.nome());
+    produto.setPrice(produtoDto.price());
+    produto.setQuantidade(produtoDto.quantidade());
 
-        return new ProdutoDto(produtoDb.getId(),produtoDb.getId_armazen() , produtoDb.getNome(),produtoDb.getQuantidade(), produtoDb.getPrice());
+    Produto produtoDb = produtoRepository.save(produto);
 
+    
+    ArmazenDto armazenDto = new ArmazenDto();
+    armazenDto.setId(produtoDb.getArmazen());
+    armazenDto.setQuantity(produtoDb.getQuantidade());
+
+    try {
+        armazenService.postQuantity(armazenDto);
+    } catch (Exception e) {
+        throw new RuntimeException("Erro ao postar a quantidade para o armazenamento", e);
     }
+
+    return new ProdutoDto(produtoDb.getId(), produtoDb.getArmazen(), produtoDb.getNome(), produtoDb.getQuantidade(), produtoDb.getPrice());
+}
+
 
 
 }

@@ -1,4 +1,4 @@
-package com.armazen.armazen_microservice.controller;
+package com.armazen_microservice.armazen.controller;
 
 import java.util.List;
 
@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.armazen.armazen_microservice.dto.ArmazenDto;
-import com.armazen.armazen_microservice.service.ArmazenService;
+import com.armazen_microservice.armazen.dto.ArmazenCapacityDto;
+import com.armazen_microservice.armazen.dto.ArmazenDto;
+import com.armazen_microservice.armazen.service.ArmazenService;
+
 
 @RestController
 @CrossOrigin("*")
@@ -42,5 +44,11 @@ public class ArmazenController {
     public ResponseEntity<ArmazenDto> updateArmazen(@RequestBody Long id, @RequestBody ArmazenDto armazenDto) {
         return ResponseEntity.ok(armazenService.updateArmazen(id, armazenDto));
     }
+
+    @PostMapping("/atualizar-estoque")
+    public ResponseEntity<ArmazenCapacityDto> updateEstoque(@RequestBody Long idArmazen, @RequestBody int quantidade) {
+        return ResponseEntity.ok(armazenService.updateEstoque(idArmazen, quantidade));
+    }
+    
     
 }

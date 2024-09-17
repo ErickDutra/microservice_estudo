@@ -19,7 +19,7 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @PostMapping("/salvar")
-    public ProdutoDto saveAgenda(@RequestBody ProdutoDto produtoDto) {
+    public ProdutoDto saveProduto(@RequestBody ProdutoDto produtoDto) {
         return produtoService.saveProduto(produtoDto);
     }
 

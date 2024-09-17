@@ -1,11 +1,10 @@
 package com.produto.service.produto_microservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
-import com.produto.service.produto_microservice.dto.ProdutoDto;
 import com.produto.service.produto_microservice.tables.Produto;
 
+@Repository
 public interface ProdutoRepository extends JpaRepository<Produto,Long>{
-    List<ProdutoDto> findByNomeContainingAllIgnoreCaseOrderByNome(String nome);
 }
