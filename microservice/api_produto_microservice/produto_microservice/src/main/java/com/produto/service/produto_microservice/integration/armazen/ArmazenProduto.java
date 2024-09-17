@@ -7,7 +7,7 @@ import feign.Headers;
 import feign.RequestLine;
 
 
-@FeignClient(name = "armazen-produto", url = "http://localhost:8080/armazen")
+@FeignClient(name = "armazen-produto", url = "http://localhost:8080")
 public interface ArmazenProduto {
 
     @RequestLine("POST /atualizar-estoque")

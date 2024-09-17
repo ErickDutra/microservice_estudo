@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArmazenService {
 
+<<<<<<< HEAD
     @Autowired
     private final ArmazenProduto armazenProduto;
 
@@ -22,5 +23,11 @@ public class ArmazenService {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao postar quantidade", e);
         }
+=======
+    private ArmazenProduto armazenProduto;
+
+    public void postQuantity(ArmazenDto armazenDto) {
+        armazenProduto.postQuantity(armazenDto);
+>>>>>>> aa55405700ac5828f009268a96285235397d99af
     }
 }

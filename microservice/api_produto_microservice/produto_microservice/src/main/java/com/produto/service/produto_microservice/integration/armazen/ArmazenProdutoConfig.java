@@ -19,7 +19,7 @@ public class ArmazenProdutoConfig {
             .encoder(new JacksonEncoder())
             .logger(new Slf4jLogger(ArmazenProduto.class))
             .logLevel(feign.Logger.Level.FULL)
-            .target(ArmazenProduto.class, "http://localhost:8080/armazen");
+            .target(ArmazenProduto.class, "http://localhost:8080");
     }
     
 }
