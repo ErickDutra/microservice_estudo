@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProdutoMicroserviceApplication<produto_microservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.produto.service.produto_microservice.ProdutoMicroserviceApplication",
+            "projectName": "produto_microservice",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ArmazenApplication<armazen>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.armazen_microservice.armazen.ArmazenApplication",
+            "projectName": "armazen",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

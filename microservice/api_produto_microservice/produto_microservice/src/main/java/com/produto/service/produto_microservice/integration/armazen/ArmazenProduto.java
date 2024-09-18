@@ -10,7 +10,7 @@ import feign.RequestLine;
 @FeignClient(name = "armazen-produto", url = "http://localhost:8080")
 public interface ArmazenProduto {
 
-    @RequestLine("POST /atualizar-estoque")
+    @RequestLine("POST /armazen/atualizar-estoque")
     @Headers("Content-Type: application/json")
     ArmazenDto postQuantity(ArmazenDto armazenDto);
 }

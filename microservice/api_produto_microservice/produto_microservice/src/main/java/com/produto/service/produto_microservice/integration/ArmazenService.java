@@ -12,8 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArmazenService {
 
-
-    private ArmazenProduto armazenProduto;
+    private final ArmazenProduto armazenProduto;
 
     public void postQuantity(ArmazenDto armazenDto) {
         armazenProduto.postQuantity(armazenDto);
